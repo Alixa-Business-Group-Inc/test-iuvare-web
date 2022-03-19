@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://socios.iuvare.mx/test -->
+<html ng-app="iuvare" lang="es" style="" class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  <title>Iuvare</title>
+  <meta name="viewport" content="width=device-width">
+  <!--<base href="/">--><base href=".">
+  <script src="./Iuvare_files/js"></script>
+  <link rel="shortcut icon" href="https://socios.iuvare.mx/assets/favicon.png" type="image/png">
+
+  <link rel="stylesheet" media="screen" href="./Iuvare_files/application-63a59e066c3d4ca4608d8baecdf692b3.css">
+  <script src="./Iuvare_files/application-40c3aac3d9c024646c7e046c950d66dc.js.descarga"></script><style type="text/css"></style>
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="qyp/6n0CNYcpwBmX0j3J0YjbUH8jOUkuJYn6eRkgbUq4PyLByOf3dp0g0d+c5f7CWL7cZGv2ThjnI4C8PEIUeg==">
+<style type="text/css">.fancybox-margin{margin-right:0px;}</style><script type="text/javascript" charset="UTF-8" src="./Iuvare_files/common.js.descarga"></script><script type="text/javascript" charset="UTF-8" src="./Iuvare_files/util.js.descarga"></script></head>
+<body ng-controller="RootController as rootCtrl" class="ng-scope">
+
+<div class="container wrapper-container">
+  <!-- uiView:  --><div ui-view="" class="ng-scope" style=""><div class="row ng-scope" ng-controller="TestController as testCtrl">
+    <div class="col-lg-12 section-container">
+        <h2 class="section-title">Test de personalidad</h2>
+
+        <!-- Sección de resultados test de personalidad -->
+        <div ng-show="!showTest &amp;&amp; !loadingPage" class="ng-hide">
+            <div class="score">
+                <h3 class="title">Mis resultados:</h3>
+                <div class="chart">
+                    <!-- ngIf: isChartLoaded() --><div class="chart-container"><canvas id="pie" class="chart chart-doughnut ng-scope ng-isolate-scope" data="dataChart.data" labels="dataChart.labels" colours="dataChart.colours" ng-if="isChartLoaded()" style=""></canvas></div><!-- end ngIf: isChartLoaded() -->
+                </div>
+                <div class="legend">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <!-- ngRepeat: result in colorTestResult.test_scores | orderBy : '-score' -->
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="score-explanation">
+                    <table>
+                        <caption ng-class="mainColorDesc.class" class="ng-binding">Eres </caption>
+                        <thead>
+                        <tr>
+                            <th>Material recomendado</th>
+                            <th>Características de personalidad</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="ng-binding">
+                                 <br>
+                                
+                            </td>
+                            <td>
+                                <ul>
+                                    <!-- ngRepeat: trait in mainColorDesc.traits -->
+                                </ul>
+                                <ul class="other-traits">
+                                    <!-- ngRepeat: other_trait in mainColorDesc.other_traits -->
+                                </ul>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="actions">
+                    <p>El sistema de capacitación que creó este test de colores es <a href="http://www.iuvare.mx/" target="_blank">IUVARE</a>. Si quieres obtener más información puedes escribirnos a <a href="mailto:contacto@iuvare.mx">contacto@iuvare.mx</a> </p>
+                    <a class="action-button-purple size-medium" title="Volver a tomar el test" ng-click="createTest()">Volver a tomar el test</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Forma para nuevo test -->
+        <div class="test-form" ng-show="showTest">
+            <form novalidate="" name="testForm" class="form ng-pristine ng-invalid ng-invalid-required" ng-submit="gradeTest()">
+                <p class="test-instructions ng-binding"> <span class="instructions-title">Instrucciones</span> Piensa en las palabras, en lo que significan y no en lo que te gustaría, realmente piensa cual se asemeja más a ti o con cual te sientes más identificado. </p>
+                <!-- ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope" style="">
+                    <p class="ng-binding">1. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Cauteloso</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="373" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="147">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Directo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="372" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="150">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Alegre</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="371" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="153">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Ayudas</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="374" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="156">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">2. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Reservado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="346" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="167">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Reflexivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="345" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="170">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Diriges</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="344" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="173">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Expresivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="343" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="176">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">3. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Solitario</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="477" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="187">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Autoritario</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="476" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="190">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Gritón</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="475" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="193">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Seguidor</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="478" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="196">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">4. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Indisciplinado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="411" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="207">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Interrumpes</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="413" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="210">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Rencoroso</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="412" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="213">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Apático</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="414" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="216">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">5. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Duda</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="437" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="227">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Dejas a medias</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="435" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="230">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Miedoso</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="438" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="233">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Terco</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="436" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="236">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">6. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Humor Seco</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="381" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="247">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Leal</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="382" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="250">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Tomas el control</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="380" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="253">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Hospitalario</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="379" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="256">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">7. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Expresivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="327" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="267">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Analítico</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="329" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="270">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Aventurero</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="328" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="273">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Adaptable</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="330" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="276">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">8. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Cedes</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="426" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="287">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Inexpresivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="425" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="290">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Impaciente</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="424" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="293">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Exagerado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="423" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="296">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">9. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Flojo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="462" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="307">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Dudoso</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="461" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="310">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Dominante</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="460" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="313">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Desorganizado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="459" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="316">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">10. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Criticón</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="485" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="327">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">No sabes perder</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="484" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="330">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Procrastinas</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="486" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="333">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Voluble</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="483" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="336">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">11. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Asertivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="404" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="347">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Feliz</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="403" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="350">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Conservador</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="405" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="353">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Tranquilo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="406" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="356">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">12. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Enérgico</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="364" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="367">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Fiel</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="365" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="370">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Empático</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="366" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="373">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Persuasivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="363" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="376">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">13. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Proactivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="348" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="387">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Idealista</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="347" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="390">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Sensible</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="350" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="393">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Metódico</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="349" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="396">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">14. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Inspirador</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="375" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="407">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Cálido</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="378" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="410">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Firme</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="376" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="413">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Piensas mucho</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="377" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="416">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">15. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Calculador</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="453" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="427">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Buscas reconocimiento</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="451" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="430">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Te resistes al  cambio</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="454" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="433">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Adicto al trabajo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="452" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="436">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">16. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Planificador</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="433" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="447">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Promotor</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="431" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="450">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Positivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="432" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="453">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Paciente</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="434" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="456">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">17. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Vas con la corriente</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="446" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="467">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Hiriente</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="445" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="470">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Iracundo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="444" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="473">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Berrinchudo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="443" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="476">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">18. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Ordenado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="361" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="487">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Servicial</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="362" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="490">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Optimista</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="359" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="493">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Jefe</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="360" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="496">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">19. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Temeroso</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="418" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="507">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Distraído</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="415" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="510">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Resentido</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="417" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="513">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Aferrado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="416" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="516">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">20. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Competitivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="340" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="527">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Confías</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="339" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="530">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Considerado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="342" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="533">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Artista</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="341" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="536">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">21. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Perfeccionista</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="393" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="547">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Vivaz</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="391" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="550">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Determinante</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="392" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="553">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Sabes escuchar</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="394" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="556">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">22. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Depresivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="457" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="567">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Parlanchín</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="455" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="570">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Sin tacto</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="456" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="573">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Temeroso</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="458" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="576">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">23. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Tolerante</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="390" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="587">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Diplomático</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="389" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="590">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Tenaz</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="388" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="593">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Interactúas</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="387" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="596">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">24. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Cuida a los demás</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="358" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="607">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Organizado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="357" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="610">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Seguro de si</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="356" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="613">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Espontáneo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="355" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="616">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">25. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Disciplinado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="369" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="627">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Osado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="368" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="630">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Solidario</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="370" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="633">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Platicador</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="367" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="636">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">26. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Manipulador</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="469" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="647">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Enojón</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="468" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="650">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Hablas bajo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="470" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="653">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Desordenado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="467" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="656">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">27. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Desafiante</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="352" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="667">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Positivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="351" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="670">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Planificador</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="353" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="673">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Paciente</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="354" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="676">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">28. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Sereno</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="334" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="687">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Bromista</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="331" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="690">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Determinado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="332" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="693">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Puntual</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="333" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="696">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">29. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Obstinado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="472" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="707">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Lento</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="474" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="710">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Escéptico</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="473" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="713">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Exhibicionista</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="471" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="716">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">30. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Superficial</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="407" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="727">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Mandón</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="409" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="730">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Melancólico</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="408" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="733">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Penoso</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="410" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="736">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">31. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Desatento</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="447" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="747">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Necio</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="448" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="750">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Inocente</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="450" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="753">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Negativo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="449" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="756">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">32. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Sumiso</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="422" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="767">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Antisocial</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="421" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="770">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Brusco</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="420" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="773">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Olvidadizo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="419" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="776">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">33. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Decidido</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="336" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="787">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Introvertido</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="338" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="790">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Preciso</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="337" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="793">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Entusiasta</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="335" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="796">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">34. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Vengativo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="481" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="807">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Impuntual</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="479" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="810">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Ermitaño</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="482" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="813">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Inflexible</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="480" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="816">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">35. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Popular</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="399" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="827">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Agradable</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="402" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="830">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Súper líder</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="400" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="833">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Sistemático</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="401" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="836">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">36. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Distraído</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="439" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="847">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Orgulloso</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="440" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="850">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Pesimista</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="441" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="853">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Permisivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="442" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="856">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">37. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Tierno</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="398" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="867">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Atrevido</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="396" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="870">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Estructurado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="397" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="873">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Amigable</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="395" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="876">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">38. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Posesivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="429" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="887">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Sacrificado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="430" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="890">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Atrabancado</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="427" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="893">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Intrusivo</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="428" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="896">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">39. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Hacedor</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="384" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="907">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Sociable</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="383" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="910">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Mediador</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="386" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="913">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Consistente</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="385" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="916">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions --><fieldset ng-repeat="question in colorTest.questions" class="ng-scope">
+                    <p class="ng-binding">40. </p>
+                    <!-- ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Indiferente</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="465" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="927">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Introvertido</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="466" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="930">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Intolerante</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="464" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="933">
+                    </label><!-- end ngRepeat: answer in question.answers --><label ng-repeat="answer in question.answers" class="profile-tests ng-scope">
+                        <div class="ng-binding">Inconsistente</div>
+                        <input type="radio" ng-model="question.selectedAnswer" value="463" required="" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" name="936">
+                    </label><!-- end ngRepeat: answer in question.answers -->
+                </fieldset><!-- end ngRepeat: question in colorTest.questions -->
+                <fieldset>
+                    <button class="action-button-forgot">Enviar</button>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</div>
+</div>
+</div>
+
+
+
+</body></html>
